@@ -27,7 +27,7 @@ spec:
       labels:
         app: backend
         tier: app
-        project: expende
+        project: expense
     spec:
       containers:
       - name: backend
