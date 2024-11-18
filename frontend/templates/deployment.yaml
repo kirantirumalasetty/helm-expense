@@ -8,7 +8,7 @@ metadata:
     tier: web
     project: expense
   spec:
-    replicas: {{ .Values.deployemnt.replicas }}
+    replicas: {{ .Values.deployment.replicas }}
     selector:
       matchLabels:
         app: frontend
