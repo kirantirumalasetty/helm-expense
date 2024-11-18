@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: nginx
   labels:   #these are replicaset labels
-    app; nginx
+    app: nginx
     tier: frontend
 spec:
   replicas:
