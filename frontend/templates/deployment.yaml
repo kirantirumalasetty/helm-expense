@@ -7,27 +7,28 @@ metadata:
     app: frontend
     tier: web
     project: expense
-  spec:
-    replicas: {{ .Values.deployment.replicas }}
-    selector:
-      matchLabels:
+spec:
+  replicas: {{ .Values.deployment.replicas }}
+  selector:
+    matchLabels:
+      app: frontend
+      tier: web
+      project: expense
+  template:
+    metadata:
+      labels:
         app: frontend
         tier: web
         project: expense
-    template:
-      metadata:
-        labels:
-          app: frontend
-          tier: web
-          project: expense
-      spec:
-        containers:
-        - name: frontend
-          image: kirantaws/frontend:{{ .Values.deployment.imageVersion }}
-          resources:
-            requests:
-              cpu: 100m
-              memory: 128Mi
-            limits:
-              cpu: 100m
-              memory: 128Mi
+    spec:
+      containers:
+      - name: frontend
+        image: kirantaws/frontend:{{ .Values.deployment.imageVersion }}
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          # limits is greater than or equal to requests
+          limits:
+            cpu: 100m
+            memory: 128Mi
